@@ -1,0 +1,28 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #ffffff;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  
+}
+.watch-now-button {
+  background-color: #141414;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+}
+
+ul{
+  list-style: none;
+}
