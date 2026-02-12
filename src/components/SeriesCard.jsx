@@ -1,25 +1,34 @@
+import styles from "./Netflix.module.css";
+import styled from 'styled-components';
 
-const btn_style = {
-  padding: "1.2rem 2.4rem",
-  border: "none",
-  fontSize:"1.6rem",
-  backgroundColor : "var(--btn-hover-bg-color)",
-  color:"var(--bg-color)",
-  position: "relative",
-  left:"50%",
-  transform: "translate(-50%)",
-  marginTop: "1rem",
-  borderRadius: "10px"
-};
+const Btn_style = styled.button`
+ padding: 1.2rem 2.4rem;
+  border: none;
+  font-size:1.6rem;
+  background-color : var(--btn-hover-bg-color);
+  color:white;
+  font-weight:bold;
+  position: relative;
+  left:50%;
+  transform: translate(-50%);
+  marginTop: 1rem;
+  borderRadius: 10px;
+  cursor: pointer;
+  `;
+
+const Rating = styled.h4`
+font-size: 1.6rem;
+color:white;
+`
 
 const SeriesCard = (props) =>{
+  
   console.log(props)
   let {data} = props
   let {name,id,img_url,rating,description,cast,genre,watch_url}=data;
+  const rating_class = rating >= 8.5 ? styles.super_hit : styles.average;
   return (
-    <li key={id} className="card" style ={{postion:"absolute"}} >
-              
-            
+    <li key={id} className={styles.card}  >
               <div>
               <img
                 src={img_url}
@@ -28,11 +37,11 @@ const SeriesCard = (props) =>{
               />
               </div>
 
-              <div className="card-content">
+              <div className={styles["card-content"]}>
               <h2>{name}</h2>
-              <h4>
-                <b>Rating</b>: {rating}
-              </h4>
+              <Rating>
+              <b>Rating</b> : <span className = {`${styles.rating} ${rating_class}`}>{rating}</span> 
+              </Rating>
               
               <p>{description}</p>
               
@@ -44,7 +53,7 @@ const SeriesCard = (props) =>{
                 {cast}
               </p>
               <a href={watch_url} target="_blank">
-                <button className="watch-now-button" style={btn_style}>Watch Now</button>
+                <Btn_style>Watch Now</Btn_style>
               </a>
               </div>
           
@@ -54,3 +63,4 @@ const SeriesCard = (props) =>{
 }
 
 export default SeriesCard;
+  
